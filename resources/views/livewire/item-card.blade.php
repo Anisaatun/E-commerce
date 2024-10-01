@@ -1,4 +1,5 @@
 <div class="bg-gray-100 shadow-sm rounded-lg hover:border border-blue-400 p-1">
+    <a href="/product/details">
     <div>
         <img src="{{ asset('images/Google Maps punya Fitur Baru.jpeg') }}" alt="product-image" class="rounded object-cover" height="400px" width="400px">
     </div>
@@ -17,4 +18,5 @@
             <a class="" href="#">Add to cart</a>
         </div>
     </div>
+    </a>
 </div>
