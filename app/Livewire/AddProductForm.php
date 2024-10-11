@@ -24,21 +24,24 @@ class AddProductForm extends Component
         $this->all_categories = Category::all();
     }
 
-    public function save() {
+    public function save(){
         $this->validate([
             'product_name' => 'required',
-            'photo' => 'required|image|mimes:jpg,jpeg,png|max:1024',
-            'product_price' => 'required|integer',
-            'category_id' => 'required', 
+            'photo' => 'image|required|mimes:jpg,png|max:1024',
+            'product_description' => 'required',
+            'product_price' => 'required|numeric',
+            'category_id' => 'required',
         ]);
+    
 
-        $path = $this->photo->store('photos');
+        // Store the uploaded image
+        $path = $this->photo->store('photos', 'public');
 
         $product = new Product();
         $product->name = $this->product_name;
         $product->image = $path;
-        $product->price = $this->product_price;
         $product->description = $this->product_description;
+        $product->price = $this->product_price;
         $product->category_id = $this->category_id;
         $product->save();
 
@@ -48,8 +51,11 @@ class AddProductForm extends Component
     public function render()
     {
         $current_url = url()->current();
-        $explode_url = explode('/', $current_url);
-        $this->currentUrl = $explode_url[3].' '.$explode_url[4]; 
+        $explode_url = explode('/',$current_url);
+        
+        $this->currentUrl = $explode_url[3].' '.$explode_url[4];
+
         return view('livewire.add-product-form')->layout('admin-layout');
     }
 }
+
