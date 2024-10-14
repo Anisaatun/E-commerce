@@ -1,14 +1,14 @@
 <div>
     <div class="flex gap-5 p-20">
-        <img src="{{ asset('images/Google Maps punya Fitur Baru.jpeg') }}" alt="product-image" class="rounded object-cover" height="400px" width="400px">
+        <img src="{{ $product->image ? Storage::url($product->image) : asset('images/placeholder-image.jpg') }}" alt="product-images" class="rounded-t-lg object-cover w-[-300px] h-[180px]">
          <div>
-            <h2 class="p-1 font-medium text-2xl line-camps-2">Product listing</h2>
-            <h2 class="p-1 text-gray-500 line-camp-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam, ullam?</h2>
+            <h2 class="p-1 font-medium text-2xl line-camps-2">{{ $product->name }}</h2>
+            <h2 class="p-1 text-gray-500 line-camp-4">{{ $product->description }}</h2>
             <div class="flex gap-10">
                 <div class="bg-green-200 p-1 rounded-md">
-                    <h2 class="text-1xl">Outfit</h2>
+                    <h2 class="text-1xl">{{ $product->category->name }}</h2>
                 </div>
-                <h2 class="text-2xl font-medium">Rp. 50.000</h2>
+                <h2 class="text-2xl font-medium">${{ $product->price }}</h2>
             </div>
          <div class="my-3">
             <a class="flex gap-2 justify-center w-full rounded bg-blue-600 px-12 py-2 text-sm font-medium text-white shadow hover:bg-blue-700 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto" href="#">
@@ -23,6 +23,6 @@
     <!-- related products -->
     <div class="my-5 px-20 pt-5">
         <h2 class="text-2xl font-medium">Related products</h2>
-        <livewire:product-listing/>
+        <livewire:product-listing :category_id="$product->category_id" :current_product_id="$product->id"/>
     </div>
 </div>

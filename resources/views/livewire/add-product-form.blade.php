@@ -23,21 +23,21 @@
 
                   <div class="sm:col-span-9">
                       <div>
-                          <input type="text" wire:model="product_name" id="af-submit-application-full-name" class="py-2 px-3 pe-11 block w-full  border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                          <input type="text" wire:model="product_name" id="af-submit-application-full-name" class="py-2 px-3 pe-11 block w-full  border-gray-200 shadow-sm -mt-px -ms-px first:rounded-t-lg last:rounded-b-lg sm:first:rounded-s-lg sm:mt-0 sm:first:ms-0 sm:first:rounded-se-none sm:last:rounded-es-none sm:last:rounded-e-lg text-sm relative focus:z-10 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  text-neutral-800 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                             @error('product_name') <span class="text-red-500">{{ $message }}</span> @enderror
                       </div>
                   </div>
                   <!-- End Col -->
 
                   <div class="sm:col-span-3">
-                      <label for="af-submit-application-email" class="inline-block text-sm font-medium text-gray-500 mt-2.5 dark:text-neutral-500">
+                      <label for="af-submit-application-email" class="inline-block text-sm font-medium text-gray-800 mt-2.5 dark:text-neutral-500">
                           Price
                       </label>
                   </div>
                   <!-- End Col -->
 
                   <div class="sm:col-span-9">
-                      <input id="af-submit-application-email" wire:model="product_price" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="py-2 px-3 pe-11 block w-full  shadow-sm text-sm rounded-lg  focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                      <input id="af-submit-application-email" wire:model="product_price" type="text" inputmode="decimal" pattern="[0-9]*[.,]?[0-9]*" class="py-2 px-3 pe-11 block w-full  shadow-sm text-sm rounded-lg  focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  text-neutral-800 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                         @error('product_price') <span class="text-red-500">{{ $message }}</span> @enderror
                   </div>
                   <!-- End Col -->
@@ -50,7 +50,7 @@
                   <!-- End Col -->
 
                   <div class="sm:col-span-9">
-                    <select wire:model="category_id" class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 ">
+                    <select wire:model="category_id" class="py-3 px-4 pe-9 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  text-neutral-800 dark:placeholder-neutral-500 dark:focus:ring-neutral-600 ">
                         <option selected="">Select Product Category</option>
                             @foreach ($all_categories as $category)
                         <option value="{{ $category->id }}" wire:key="{{ $category->id }}">{{$category->name}}</option>
@@ -120,7 +120,7 @@
                   <!-- End Col -->
 
                   <div class="sm:col-span-9">
-                      <textarea id="af-submit-application-bio" wire:model="product_description" class="py-2 px-3 block w-full  border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" rows="6" placeholder="Add a product description here!"></textarea>
+                      <textarea id="af-submit-application-bio" wire:model="product_description" class="py-2 px-3 block w-full  border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none  text-neutral-800 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" rows="6" placeholder="Add a product description here!"></textarea>
                         @error('product_description') <span class="text-red-500">{{ $message }}</span> @enderror
                   </div>
                   <!-- End Col -->
